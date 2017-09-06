@@ -1,0 +1,31 @@
+﻿using UnityEngine;
+
+
+namespace HC
+{
+    [DisallowMultipleComponent]
+    public class #SCRIPTNAME# : MonoBehaviour
+    {
+        #region フィールド / プロパティ
+
+
+
+        #endregion
+
+
+        #region イベントメソッド
+
+        private void Start()
+        {
+        }
+
+        #endregion
+
+
+        #region メソッド
+
+
+
+        #endregion
+    }
+}
