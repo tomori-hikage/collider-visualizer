@@ -30,7 +30,7 @@ namespace HC.Debug
                     break;
 
                 default:
-                    Debug.LogWarning("BoxCollider, SphereCollider, CapsuleColliderのみサポートしています。");
+                    UnityEngine.Debug.LogWarning("BoxCollider, SphereCollider, CapsuleColliderのみサポートしています。");
                     break;
             }
         }
@@ -88,6 +88,24 @@ namespace HC.Debug
             Destroy(capsule.GetComponent<Collider>());
 
             capsuleTransform.localPosition += capsuleCollider.center;
+
+            switch (capsuleCollider.direction)
+            {
+                // X-Axis
+                case 0:
+                    capsuleTransform.Rotate(Vector3.forward * 90f);
+                    break;
+
+                // Y-Axis
+                case 1:
+                    break;
+
+                // Z-Axis
+                case 2:
+                    capsuleTransform.Rotate(Vector3.right * 90f);
+                    break;
+            }
+
             Vector3 capsuleLocalScale = capsuleTransform.localScale;
             float radius = capsuleCollider.radius;
             float newCapsuleLocalScaleX = capsuleLocalScale.x * radius * 2f;
