@@ -17,6 +17,14 @@ namespace HC.Debug
         /// </summary>
         private GameObject _visibleCollider;
 
+        /// <summary>
+        /// ラベル
+        /// </summary>
+        private Text _text;
+
+        /// <summary>
+        /// 可視コライダーのラベルを表示するためのCanvas
+        /// </summary>
         private static GameObject _colliderVisualizerCanvas;
         private static GameObject ColliderVisualizerCanvas
         {
@@ -35,8 +43,10 @@ namespace HC.Debug
             }
         }
 
+        /// <summary>
+        /// ラベルのフォント
+        /// </summary>
         private static Font _font;
-
         private static Font Font { get { return _font ?? (_font = Resources.GetBuiltinResource<Font>("Arial.ttf")); } }
 
         #endregion
@@ -73,8 +83,21 @@ namespace HC.Debug
             // 可視コライダーのマテリアルを設定する
             var material = _visibleCollider.GetComponent<Renderer>().material;
             SetVisibleColliderMaterial(material);
+        }
 
-            CreateLabel("Hello");
+        private void Update()
+        {
+            if (_text == null) return;
+
+            // ラベルを可視コライダーの位置に追従する
+            _text.rectTransform.position = RectTransformUtility.WorldToScreenPoint(Camera.main, _visibleCollider.transform.position);
+        }
+
+        private void OnDestroy()
+        {
+            if (_text == null) return;
+
+            Destroy(_text);
         }
 
         #endregion
@@ -83,20 +106,25 @@ namespace HC.Debug
         #region メソッド
 
         /// <summary>
-        /// ラベルを生成してメッセージを表示する
+        /// ラベルを生成する
         /// </summary>
         /// <param name="message">message.</param>
-        public void CreateLabel(string message)
+        /// <param name="fontSize">フォントの大きさ</param>
+        public void CreateLabel(string message, int fontSize)
         {
             var label = new GameObject("Label");
             label.transform.SetParent(ColliderVisualizerCanvas.transform);
 
-            // TODO: 適切な位置に表示する
-            var text = label.AddComponent<Text>();
-            text.font = Font;
-            text.alignment = TextAnchor.MiddleCenter;
-            text.raycastTarget = false;
-            text.text = message;
+            _text = label.AddComponent<Text>();
+            _text.font = Font;
+            _text.fontSize = fontSize;
+            _text.alignment = TextAnchor.MiddleCenter;
+            _text.raycastTarget = false;
+            _text.text = message;
+
+            var contentSizeFitter = label.AddComponent<ContentSizeFitter>();
+            contentSizeFitter.horizontalFit = ContentSizeFitter.FitMode.PreferredSize;
+            contentSizeFitter.verticalFit = ContentSizeFitter.FitMode.PreferredSize;
         }
 
         /// <summary>
@@ -177,7 +205,7 @@ namespace HC.Debug
         /// 可視コライダーのマテリアルを設定する
         /// </summary>
         /// <param name="material">material.</param>
-        private void SetVisibleColliderMaterial(Material material)
+        private static void SetVisibleColliderMaterial(Material material)
         {
             material.shader = Shader.Find("Sprites/Default");
             material.color = new Color(1f, 0f, 0f, 0.2f);
