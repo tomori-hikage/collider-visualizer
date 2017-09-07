@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using HC.Extensions;
 
 
 namespace HC.Debug
@@ -31,7 +32,7 @@ namespace HC.Debug
 
                 default:
                     UnityEngine.Debug.LogWarning("BoxCollider, SphereCollider, CapsuleColliderのみサポートしています。");
-                    break;
+                    return;
             }
         }
 
@@ -53,8 +54,13 @@ namespace HC.Debug
             // BoxColliderは不要なので削除する
             Destroy(cube.GetComponent<Collider>());
 
+            // BoxColliderのプロパティを加味したTransformにする
             cubeTransform.localPosition += boxCollider.center;
             cubeTransform.localScale = Vector3.Scale(cubeTransform.localScale, boxCollider.size);
+
+            // 可視コライダーのマテリアルを設定する
+            var cubeMaterial = cube.GetComponent<Renderer>().material;
+            SetVisibleColliderMaterial(cubeMaterial);
         }
 
         /// <summary>
@@ -63,15 +69,20 @@ namespace HC.Debug
         /// <param name="sphereCollider">sphereCollider.</param>
         private void VisualizeSphereCollider(SphereCollider sphereCollider)
         {
-            // 球を子として生成する
+            // スフィアを子として生成する
             var sphere = GameObject.CreatePrimitive(PrimitiveType.Sphere);
             var sphereTransform = sphere.transform;
             sphereTransform.SetParent(transform, worldPositionStays: false);
             // SphereColliderは不要なので削除する
             Destroy(sphere.GetComponent<Collider>());
 
+            // SphereColliderのプロパティを加味したTransformにする
             sphereTransform.localPosition += sphereCollider.center;
             sphereTransform.localScale *= sphereCollider.radius * 2f;
+
+            // 可視コライダーのマテリアルを設定する
+            var sphereMaterial = sphere.GetComponent<Renderer>().material;
+            SetVisibleColliderMaterial(sphereMaterial);
         }
 
         /// <summary>
@@ -87,6 +98,8 @@ namespace HC.Debug
             // CapsuleColliderは不要なので削除する
             Destroy(capsule.GetComponent<Collider>());
 
+
+            // CapsuleColliderのプロパティを加味したTransformにする
             capsuleTransform.localPosition += capsuleCollider.center;
 
             switch (capsuleCollider.direction)
@@ -112,6 +125,21 @@ namespace HC.Debug
             float newCapsuleLocalScaleY = capsuleLocalScale.y * capsuleCollider.height * 0.5f;
             float newCapsuleLocalScaleZ = capsuleLocalScale.z * radius * 2f;
             capsuleTransform.localScale = new Vector3(newCapsuleLocalScaleX, newCapsuleLocalScaleY, newCapsuleLocalScaleZ);
+
+
+            // 可視コライダーのマテリアルを設定する
+            var capsuleMaterial = capsule.GetComponent<Renderer>().material;
+            SetVisibleColliderMaterial(capsuleMaterial);
+        }
+
+        /// <summary>
+        /// 可視コライダーのマテリアルを設定する
+        /// </summary>
+        /// <param name="material">material.</param>
+        private void SetVisibleColliderMaterial(Material material)
+        {
+            material.SetRenderingMode(MaterialExtensions.RenderingMode.Fade);
+            material.color = new Color(1f, 0f, 0f, 0.6f);
         }
 
         #endregion
