@@ -1,6 +1,5 @@
 ﻿using UnityEngine;
-using HC.Extensions;
-using NUnit.Framework.Constraints;
+using UnityEngine.UI;
 
 
 namespace HC.Debug
@@ -17,6 +16,28 @@ namespace HC.Debug
         /// 可視コライダー
         /// </summary>
         private GameObject _visibleCollider;
+
+        private static GameObject _colliderVisualizerCanvas;
+        private static GameObject ColliderVisualizerCanvas
+        {
+            get
+            {
+                if (_colliderVisualizerCanvas == null)
+                {
+                    _colliderVisualizerCanvas = new GameObject("ColliderVisualizerCanvas");
+                    var canvas = _colliderVisualizerCanvas.AddComponent<Canvas>();
+                    canvas.renderMode = RenderMode.ScreenSpaceOverlay;
+                    _colliderVisualizerCanvas.AddComponent<CanvasScaler>();
+                    _colliderVisualizerCanvas.AddComponent<GraphicRaycaster>();
+                }
+
+                return _colliderVisualizerCanvas;
+            }
+        }
+
+        private static Font _font;
+
+        private static Font Font { get { return _font ?? (_font = Resources.GetBuiltinResource<Font>("Arial.ttf")); } }
 
         #endregion
 
@@ -52,12 +73,31 @@ namespace HC.Debug
             // 可視コライダーのマテリアルを設定する
             var material = _visibleCollider.GetComponent<Renderer>().material;
             SetVisibleColliderMaterial(material);
+
+            CreateLabel("Hello");
         }
 
         #endregion
 
 
         #region メソッド
+
+        /// <summary>
+        /// ラベルを生成してメッセージを表示する
+        /// </summary>
+        /// <param name="message">message.</param>
+        public void CreateLabel(string message)
+        {
+            var label = new GameObject("Label");
+            label.transform.SetParent(ColliderVisualizerCanvas.transform);
+
+            // TODO: 適切な位置に表示する
+            var text = label.AddComponent<Text>();
+            text.font = Font;
+            text.alignment = TextAnchor.MiddleCenter;
+            text.raycastTarget = false;
+            text.text = message;
+        }
 
         /// <summary>
         /// 可視コライダーを生成する
