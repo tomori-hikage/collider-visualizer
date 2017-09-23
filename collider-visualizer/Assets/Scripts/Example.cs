@@ -30,8 +30,8 @@ namespace HC
         {
             int fontSize = 88;
             _cube.AddComponent<ColliderVisualizer>().Initialize(ColliderVisualizer.VisualizerColorType.Red, "Cube", fontSize);
-            _sphere.AddComponent<ColliderVisualizer>().Initialize(ColliderVisualizer.VisualizerColorType.Blue, "Sphere", fontSize);
-            _capsule.AddComponent<ColliderVisualizer>().Initialize(ColliderVisualizer.VisualizerColorType.Green, "Capsule", fontSize);
+            _sphere.AddComponent<ColliderVisualizer>().Initialize(ColliderVisualizer.VisualizerColorType.Green, "Sphere", fontSize);
+            _capsule.AddComponent<ColliderVisualizer>().Initialize(ColliderVisualizer.VisualizerColorType.Blue, "Capsule", fontSize);
         }
 
         #endregion

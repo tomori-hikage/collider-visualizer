@@ -77,15 +77,17 @@ LightmapSettings:
     m_PVRDirectSampleCount: 32
     m_PVRSampleCount: 500
     m_PVRBounces: 2
-    m_PVRFiltering: 0
+    m_PVRFilterTypeDirect: 0
+    m_PVRFilterTypeIndirect: 0
+    m_PVRFilterTypeAO: 0
     m_PVRFilteringMode: 1
     m_PVRCulling: 1
     m_PVRFilteringGaussRadiusDirect: 1
     m_PVRFilteringGaussRadiusIndirect: 5
     m_PVRFilteringGaussRadiusAO: 2
-    m_PVRFilteringAtrousColorSigma: 1
-    m_PVRFilteringAtrousNormalSigma: 1
-    m_PVRFilteringAtrousPositionSigma: 1
+    m_PVRFilteringAtrousPositionSigmaDirect: 0.5
+    m_PVRFilteringAtrousPositionSigmaIndirect: 2
+    m_PVRFilteringAtrousPositionSigmaAO: 1
   m_LightingDataAsset: {fileID: 0}
   m_UseShadowmask: 1
 --- !u!196 &4
@@ -117,7 +119,6 @@ GameObject:
   m_Component:
   - component: {fileID: 768643978}
   - component: {fileID: 768643976}
-  - component: {fileID: 768643975}
   m_Layer: 0
   m_Name: Sphere
   m_TagString: Untagged
@@ -125,17 +126,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &768643975
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 768643974}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e1cd58f4489929a4eb4c9ac9ab5a0982, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!135 &768643976
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -235,7 +225,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1353880316}
   - component: {fileID: 1353880315}
-  - component: {fileID: 1353880317}
   m_Layer: 0
   m_Name: Capsule
   m_TagString: Untagged
@@ -269,17 +258,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 10, y: 20, z: 30}
---- !u!114 &1353880317
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1353880314}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e1cd58f4489929a4eb4c9ac9ab5a0982, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1534888760
 GameObject:
   m_ObjectHideFlags: 0
@@ -307,9 +285,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9e7d55ecbd551140a3c5ab4950ef3d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _cubeColliderVisualizer: {fileID: 1631383844}
-  _sphereColliderVisualizer: {fileID: 768643975}
-  _capsuleColliderVisualizer: {fileID: 1353880317}
+  _cube: {fileID: 1631383843}
+  _sphere: {fileID: 768643974}
+  _capsule: {fileID: 1353880314}
 --- !u!4 &1534888762
 Transform:
   m_ObjectHideFlags: 0
@@ -332,7 +310,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1631383848}
   - component: {fileID: 1631383846}
-  - component: {fileID: 1631383844}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
@@ -340,17 +317,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1631383844
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1631383843}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e1cd58f4489929a4eb4c9ac9ab5a0982, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!65 &1631383846
 BoxCollider:
   m_ObjectHideFlags: 0
