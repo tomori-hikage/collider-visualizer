@@ -50,7 +50,7 @@ namespace HC.Debug
         /// <summary>
         /// レイアウトの基準解像度
         /// </summary>
-        private static readonly Vector2 ReferenceResolution = new Vector2(1080f, 1920f);
+        private static readonly Vector2 ReferenceResolution = new Vector2(800f, 600f);
 
         /// <summary>
         /// 可視コライダーの色の種類
@@ -126,6 +126,7 @@ namespace HC.Debug
             if (_label == null) return;
 
             Destroy(_label.gameObject);
+            Destroy(_visualizer);
         }
 
         #endregion
@@ -136,12 +137,12 @@ namespace HC.Debug
         /// <summary>
         /// 初期化する
         /// </summary>
-        /// <param name="visualizerColorType">visualizerColorType.</param>
+        /// <param name="visualizerColor">visualizerColor.</param>
         /// <param name="message">message.</param>
         /// <param name="fontSize">fontSize.</param>
-        public void Initialize(VisualizerColorType visualizerColorType, string message, int fontSize)
+        public void Initialize(VisualizerColorType visualizerColor, string message, int fontSize)
         {
-            Initialize(VisualizerColorDictionary[visualizerColorType], message, fontSize);
+            Initialize(VisualizerColorDictionary[visualizerColor], message, fontSize);
         }
 
         /// <summary>
@@ -176,7 +177,7 @@ namespace HC.Debug
             }
 
             // 可視コライダーのマテリアルを設定する
-            Material material = _visualizer.GetComponent<Renderer>().material;
+            var material = _visualizer.GetComponent<Renderer>().material;
             material.shader = Shader.Find("Sprites/Default");
             // 色を設定する
             material.color = color;
