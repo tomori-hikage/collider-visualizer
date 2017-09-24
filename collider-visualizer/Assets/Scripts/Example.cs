@@ -1,5 +1,5 @@
-﻿using HC.Debug;
-using UnityEngine;
+﻿using UnityEngine;
+using HC.Debug;
 
 
 namespace HC
@@ -13,13 +13,13 @@ namespace HC
         #region フィールド / プロパティ
 
         [SerializeField]
-        private ColliderVisualizer _cubeColliderVisualizer;
+        private GameObject _cube;
 
         [SerializeField]
-        private ColliderVisualizer _sphereColliderVisualizer;
+        private GameObject _sphere;
 
         [SerializeField]
-        private ColliderVisualizer _capsuleColliderVisualizer;
+        private GameObject _capsule;
 
         #endregion
 
@@ -28,9 +28,10 @@ namespace HC
 
         private void Start()
         {
-            _cubeColliderVisualizer.CreateLabel("Cube", 24);
-            _sphereColliderVisualizer.CreateLabel("Sphere", 24);
-            _capsuleColliderVisualizer.CreateLabel("Capsule", 24);
+            int fontSize = 88;
+            _cube.AddComponent<ColliderVisualizer>().Initialize(ColliderVisualizer.VisualizerColorType.Red, "Cube", fontSize);
+            _sphere.AddComponent<ColliderVisualizer>().Initialize(ColliderVisualizer.VisualizerColorType.Green, "Sphere", fontSize);
+            _capsule.AddComponent<ColliderVisualizer>().Initialize(ColliderVisualizer.VisualizerColorType.Blue, "Capsule", fontSize);
         }
 
         #endregion
