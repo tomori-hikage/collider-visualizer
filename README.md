@@ -57,3 +57,9 @@ public class Example : MonoBehaviour
 ## 配布ライセンス
 
 MIT / X11ライセンスで公開いたします
+
+## 使用ライセンス
+
+この作品はユニティちゃんライセンス条項の元に提供されています
+
+© Unity Technologies Japan/UCL
