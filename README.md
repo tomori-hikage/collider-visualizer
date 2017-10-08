@@ -6,7 +6,7 @@ collider-visualizerは当たり判定の表示デバッグ機能です
 
 collider-visualizer.unitypackageをプロジェクトにインポートしてください
 
-## 使用方法
+## 使用例
 
 ```csharp
 using UnityEngine;
