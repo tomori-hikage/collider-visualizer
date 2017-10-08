@@ -8,7 +8,7 @@ collider-visualizer.unitypackageをプロジェクトにインポートしてく
 
 ## 使用方法
 
-```csharp
+```csharp:使用例
 using UnityEngine;
 using HC.Debug;
 
