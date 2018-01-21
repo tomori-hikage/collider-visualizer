@@ -1,12 +1,18 @@
 # collider-visualizer
 
+## Description
+
 collider-visualizerは当たり判定の表示デバッグ機能です
 
-## 導入方法
+## Demo
+
+![実行結果](https://github.com/tomoriaki/collider-visualizer/blob/readme_images/Images/ss1.gif)
+
+## Install
 
 collider-visualizer.unitypackageをプロジェクトにインポートしてください
 
-## 使用例
+## Usage
 
 ```csharp
 using UnityEngine;
@@ -54,11 +60,16 @@ public class Example : MonoBehaviour
 
 ![実行結果](https://github.com/tomoriaki/collider-visualizer/blob/readme_images/Images/ss1.gif)
 
-## 配布ライセンス
+## Author
 
-MIT / X11ライセンスで公開いたします
+Twitter: [@tomoriaki](https://twitter.com/tomoriaki)  
+Qiita: [@tomoriaki](https://qiita.com/tomoriaki)
 
-## 使用ライセンス
+## Distribution License
+
+[MIT](https://github.com/tomoriaki/collider-visualizer/blob/master/LICENSE)
+
+## Use License
 
 この作品はユニティちゃんライセンス条項の元に提供されています
 
