@@ -67,7 +67,7 @@ Qiita: [@tomori_hikage](https://qiita.com/tomori_hikage)
 
 ## Distribution License
 
-[MIT](https://github.com/tomoriaki/collider-visualizer/blob/master/LICENSE)
+[MIT](https://github.com/tomori-hikage/collider-visualizer/blob/master/LICENSE)
 
 ## Use License
 
