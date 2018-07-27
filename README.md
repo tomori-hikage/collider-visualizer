@@ -62,8 +62,8 @@ public class Example : MonoBehaviour
 
 ## Author
 
-Twitter: [@tomoriaki](https://twitter.com/tomoriaki)  
-Qiita: [@tomoriaki](https://qiita.com/tomoriaki)
+Twitter: [@tomori_hikage](https://twitter.com/tomori_hikage)  
+Qiita: [@tomori_hikage](https://qiita.com/tomori_hikage)
 
 ## Distribution License
 
