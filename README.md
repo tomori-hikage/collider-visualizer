@@ -71,6 +71,4 @@ Qiita: [@tomori_hikage](https://qiita.com/tomori_hikage)
 
 ## Use License
 
-この作品はユニティちゃんライセンス条項の元に提供されています
-
-© Unity Technologies Japan/UCL
+[© Unity Technologies Japan/UCL](http://unity-chan.com/contents/license_jp/)
