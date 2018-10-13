@@ -10,7 +10,7 @@ collider-visualizerは当たり判定の表示デバッグ機能です
 
 ## Install
 
-[release](https://github.com/tomoriaki/collider-visualizer/releases)からcollider-visualizer.unitypackageをダウンロードしてプロジェクトにインポートしてください
+[releases](https://github.com/tomoriaki/collider-visualizer/releases)からcollider-visualizer.unitypackageをダウンロードしてプロジェクトにインポートしてください
 
 ## Example
 
