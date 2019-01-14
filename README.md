@@ -1,3 +1,8 @@
+[![license](https://img.shields.io/github/license/tomori-hikage/collider-visualizer.svg?style=flat-square)](https://github.com/tomori-hikage/collider-visualizer/blob/master/LICENSE)
+[![release](https://img.shields.io/github/release/tomori-hikage/collider-visualizer.svg?style=flat-square)](https://github.com/tomori-hikage/collider-visualizer/releases)
+[![GitHub](https://img.shields.io/github/followers/tomori-hikage.svg?label=GitHub&style=social)](https://github.com/tomori-hikage)
+[![Twitter](https://img.shields.io/twitter/follow/tomori_hikage.svg?label=Twitter&style=social)](https://twitter.com/tomori_hikage)
+
 # collider-visualizer
 
 ## Description
@@ -59,16 +64,6 @@ public class Example : MonoBehaviour
 ```
 
 ![実行結果](https://github.com/tomoriaki/collider-visualizer/blob/readme_images/Images/ss1.gif)
-
-## Author
-
-GitHub: [tomori-hikage](https://github.com/tomori-hikage)  
-Qiita: [@tomori_hikage](https://qiita.com/tomori_hikage)  
-Twitter: [@tomori_hikage](https://twitter.com/tomori_hikage)
-
-## Distribution License
-
-[MIT](https://github.com/tomori-hikage/collider-visualizer/blob/master/LICENSE)
 
 ## Use License
 
